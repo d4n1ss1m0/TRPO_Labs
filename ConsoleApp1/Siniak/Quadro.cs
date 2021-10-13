@@ -14,12 +14,13 @@ namespace Siniak
             if (a == 0)
             {
                 x = SolveLinear(b, c);
-                return new List<float>(SolveLinear(b, c));
+                return new List<float>(x);
             }
+            SiniakLog.I().log("Определено, что это квадратное уравнение");
             float D = Discr(a, b, c);
             if (D < 0)
             {
-                throw new Exception("D<0, корней нет");
+                throw new SiniakException("Ошибка: уравнение не имеет решений.");
             }
             else if (D > 0)
             {

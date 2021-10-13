@@ -18,8 +18,9 @@ namespace Siniak
         {
             if (a == 0)
             {
-                throw new Exception("x любое число");
+                throw new SiniakException("Определено, что такое уравнение не существует");
             }
+            SiniakLog.I().log("Определено, что это линейное уравнение");
             this.x = new float[1];
             return this.x = new float[1] { (-b) / a };
         }
