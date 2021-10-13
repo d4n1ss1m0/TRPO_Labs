@@ -10,15 +10,19 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            A a1 = new A();
-            A a2 = new A();
-            A a3 = new A();
-            A a4 = new A();
-            B b5 = new B();
-            b5.a1 = a1; //и тд
-            b5.a2 = a2;
-            b5.a3 = a3;
-            b5.a4 = a4;
+            B b = new B();
+            try
+            {
+                b.Quadr(0, 1, 1);
+                Console.WriteLine("D=" + b.getD());
+                Console.WriteLine("x1="+b.getX());
+                Console.WriteLine("x2=" + b.getX2());
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            Console.ReadKey();
         }
     }
 }
