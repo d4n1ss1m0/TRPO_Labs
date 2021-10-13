@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using core;
 
-namespace ConsoleApp1
+namespace Siniak
 {
     class Program
     {
         static void Main(string[] args)
         {
-            B b = new B();
+            SiniakLog log = SiniakLog.I(); 
+            Quadro b = new Quadro();
             try
-            {
-                b.Quadr(0, 1, 1);
-                Console.WriteLine("D=" + b.getD());
-                Console.WriteLine("x1="+b.getX());
-                Console.WriteLine("x2=" + b.getX2());
+            {                
+                b.Solve(0, 1, 1);
+                
+                log.log("x1=" + b.getX()[0].ToString());
+                if(b.getX().Length>1)
+                    log.log("x2=" + b.getX()[1].ToString());
+
+                log.write();
             }
             catch(Exception e)
             {

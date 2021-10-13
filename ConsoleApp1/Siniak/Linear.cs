@@ -4,24 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Siniak
 {
-    class A
+    class Linear
     {
-        protected double x;
-        public double getX()
+        protected float[] x;
+        public float[] getX()
         {
             return x;
         }
 
-        public double Linear(double a, double b)
+        public float[] SolveLinear(float a, float b)
         {
             if (a == 0)
             {
                 throw new Exception("x любое число");
             }
-             return this.x = (- b) / a;
-           //this.x;
+            this.x = new float[1];
+            return this.x = new float[1] { (-b) / a };
         }
     }
 }

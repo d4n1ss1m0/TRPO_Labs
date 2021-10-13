@@ -43,13 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="A.cs" />
-    <Compile Include="B.cs" />
+    <Compile Include="core\EquationInterface.cs" />
+    <Compile Include="Siniak\Linear.cs" />
+    <Compile Include="Siniak\Quadro.cs" />
+    <Compile Include="core\LogInterface.cs" />
+    <Compile Include="core\LogAbstract.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Siniak\SiniakLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
