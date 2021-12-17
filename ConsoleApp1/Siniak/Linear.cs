@@ -20,7 +20,7 @@ namespace Siniak
             {
                 throw new SiniakException("Определено, что такое уравнение не существует");
             }
-            SiniakLog.I().log("Определено, что это линейное уравнение");
+            SiniakLog.I().Log("Определено, что это линейное уравнение");
             this.x = new float[1];
             return this.x = new float[1] { (-b) / a };
         }

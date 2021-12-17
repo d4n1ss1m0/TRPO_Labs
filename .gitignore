@@ -350,3 +350,8 @@ MigrationBackup/
 .ionide/
 
 ConsoleApp1/core
+ConsoleApp1/trpo-core-cs/
+
+log/
+version
+build_output/

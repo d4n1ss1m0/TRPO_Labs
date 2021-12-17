@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Siniak.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,15 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="core\EquationInterface.cs" />
     <Compile Include="Siniak\Linear.cs" />
     <Compile Include="Siniak\Quadro.cs" />
-    <Compile Include="core\LogInterface.cs" />
-    <Compile Include="core\LogAbstract.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Siniak\SiniakException.cs" />
     <Compile Include="Siniak\SiniakLog.cs" />
+    <Compile Include="trpo-core-cs\EquationInterface.cs" />
+    <Compile Include="trpo-core-cs\LogAbstract.cs" />
+    <Compile Include="trpo-core-cs\LogInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

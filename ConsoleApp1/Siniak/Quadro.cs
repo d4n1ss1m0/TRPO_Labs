@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using core;
+using Lab.Core;
 
 namespace Siniak
 {
@@ -16,7 +16,7 @@ namespace Siniak
                 x = SolveLinear(b, c);
                 return new List<float>(x);
             }
-            SiniakLog.I().log("Определено, что это квадратное уравнение");
+            SiniakLog.I().Log("Определено, что это квадратное уравнение");
             float D = Discr(a, b, c);
             if (D < 0)
             {

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using core;
+using Lab.Core;
+using System.IO;
 
 namespace Siniak
 {
@@ -17,15 +18,22 @@ namespace Siniak
             
         }
 
-        public LogInterface log(string str)
+        public LogInterface Log(string str)
         {
             storage.Add(str);
             return this;
         }
 
-        public LogInterface write()
+        public LogInterface Write()
         {
-            writeConsole(storage.ToArray());
+            WriteConsole(storage.ToArray());
+            string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            File.WriteAllLines(path + "\\" + DateTime.Now.ToString("dd.MM.yyyy_HH.mm.ss.fff") + ".log", storage.ToArray());
             return this;
         }
 

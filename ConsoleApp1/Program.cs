@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using core;
+using Lab.Core;
+using System.IO;
 
 namespace Siniak
 {
@@ -15,9 +16,24 @@ namespace Siniak
             Quadro eq = new Quadro();
             
             try
-            {               
-                log.log("Введите 3 параметра a,b,c");
+            {
+
                 
+                string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                if (!File.Exists($"{path}\\version.txt"))
+                {
+                    File.Create($"{path}\\version.txt");
+                }
+                FileStream fstream = File.OpenRead($"{path}\\version.txt");              
+                // преобразуем строку в байты
+                byte[] array = new byte[fstream.Length];
+                // считываем данные
+                fstream.Read(array, 0, array.Length);
+                // декодируем байты в строку
+                string textFromFile = System.Text.Encoding.Default.GetString(array);
+                Console.WriteLine($"Версия программы: {textFromFile}");
+                log.Log("Введите 3 параметра a,b,c");
+
                 Console.Write("Введите a:");
                 float a = (float) Convert.ToDouble(Console.ReadLine());
                 Console.Write("Введите b:");
@@ -26,22 +42,22 @@ namespace Siniak
                 float c = (float)Convert.ToDouble(Console.ReadLine());
                 
 
-                log.log(String.Format("{0}x^2{1}x{2}=0", SignedNumber(a).Remove(0, 1), SignedNumber(b), SignedNumber(c)));
+                log.Log(String.Format("{0}x^2{1}x{2}=0", SignedNumber(a).Remove(0, 1), SignedNumber(b), SignedNumber(c)));
                 var x =eq.Solve(a,b,c);               
-                log.log(String.Format("Корни уравнения: x={0}  ", string.Join(" ", x)));
+                log.Log(String.Format("Корни уравнения: x={0}  ", string.Join(" ", x)));
                 
                 
             }
             catch(SiniakException e)
             {
-                log.log(e.Message);               
+                log.Log(e.Message);               
             }
             catch
             {
-                log.log("Что-то пошло не так");
+                log.Log("Что-то пошло не так");
             }
-            log.write();
-            Console.ReadKey();
+            log.Write();
+
         }
 
         public static string SignedNumber(float num)//если число >= 0, добавить +, иначе -
